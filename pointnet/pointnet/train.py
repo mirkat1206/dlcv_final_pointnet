@@ -26,7 +26,8 @@ parser.add_argument(
     '--workers', type=int, help='number of data loading workers', default=4)
 parser.add_argument(
     '--nepoch', type=int, default=5, help='number of epochs to train for')
-parser.add_argument('--outf', type=str, default='./out/', help='output folder')
+parser.add_argument('--outf', type=str, default='./seg/', help='checkpoint output folder')
+parser.add_argument('--predf', type=str, default='./out/', help='prediction output folder')
 parser.add_argument('--model', type=str, default='', help='model path')
 parser.add_argument('--class_choice', type=str, default=None, help="class_choice")
 parser.add_argument('--feature_transform', action='store_true', help="use feature transform")
