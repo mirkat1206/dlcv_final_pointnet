@@ -59,4 +59,12 @@ dlcv_final_pointnet
     - test/val 的時候，一次丟全部的點，但 batchsize = 1
 6. dataset.py line 78,79 : number of worker = 0 
     - 因為我的 server 設number of worker = 4 會有 bug (pytorch問題)
-  
+7. 更加仔細的分析，各個 class 的 accuracy
+8. visualization for presentation
+
+## Possible Improvement Method
+1. (x, y, z, r, g, b)
+2. data augmentation (written by PointNet)
+3. 200 classes -> 201 classes
+4. npoint = 2500 for training -> more?
+5. fine-tuning with class_choice (need more coding)
