@@ -41,6 +41,11 @@ dlcv_final_pointnet
   ```bash=
   $ python3 pointnet/train.py
   ```
+3. inference
+  ```bash=
+  $ python3 pointnet/train.py --model <checkpoint path> --nepoch -1
+  ```
+
 
 ## Note
 1. 計算 mIoU
@@ -59,8 +64,9 @@ dlcv_final_pointnet
     - test/val 的時候，一次丟全部的點，但 batchsize = 1
 6. dataset.py line 78,79 : number of worker = 0 
     - 因為我的 server 設number of worker = 4 會有 bug (pytorch問題)
-7. 更加仔細的分析，各個 class 的 accuracy
-8. visualization for presentation
+7. TODO
+    - 更加仔細的分析，各個 class 的 accuracy
+    - visualization for presentation
 
 ## Possible Improvement Method
 1. (x, y, z, r, g, b)
