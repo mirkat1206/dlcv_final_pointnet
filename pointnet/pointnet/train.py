@@ -158,11 +158,11 @@ def test():
             pred_choice = pred.data.max(1)[1]
             
             pred_np = pred_choice.cpu().data.numpy()
-            with open(opt.outf + fn + '.txt', 'w') as f:
+            with open(opt.predf + fn + '.txt', 'w') as f:
                 for j in range(len(pred_np)):
                     f.write(str(Kst.VALID_CLASS_IDS_200[pred_np[j]]))
-                    f.write(' ')
-                    f.write(str(Kst.CLASS_LABELS_200[pred_np[j]]))
+                    # f.write(' ')
+                    # f.write(str(Kst.CLASS_LABELS_200[pred_np[j]]))
                     f.write('\n')
 
 
