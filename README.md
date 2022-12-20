@@ -45,13 +45,18 @@ dlcv_final_pointnet
 ## Note
 1. 計算 mIoU
 2. 改變 model
-  - dataset.py line 60 : 現在只有給 (x, y, z)
-  - 嘗試 (x, y, z, r, g, b, normal values(?)) 
-  - 需改變 model.py
+    - dataset.py line 60 : 現在只有給 (x, y, z)
+    - 嘗試 (x, y, z, r, g, b, normal values(?)) 
+    - 需改變 model.py
 3. 目前使用 200 labels，分別為 0 ~ 199
-  - dataset.py line 67 : training 時只會給 200 labels 的資料點
-  - dataset.py line 86 : validation 時會給所有資料點
-  - train.py mIoU() line 108 : 計算 accuracy 時，只會計算 200 labels 的資料點
-  - prediction 只會預測 200 labels，反正 200 外一定是錯的
-4. train / valid 切割可以從 split_train_val.py 設定 ratio
+    - dataset.py line 67 : training 時只會給 200 labels 的資料點
+    - dataset.py line 86 : validation 時會給所有資料點
+    - train.py mIoU() line 108 : 計算 accuracy 時，只會計算 200 labels 的資料點
+    - prediction 只會預測 200 labels，反正 200 外一定是錯的
+4. train/val 切割可以從 split_train_val.py 設定 ratio
+5. npoints 問題
+    - train 的時候，丟統一數量的 npoints，batchsize > 1 (dataset.py line 51)
+    - test/val 的時候，一次丟全部的點，但 batchsize = 1
+6. dataset.py line 78,79 : number of worker = 0 
+    - 因為我的 server 設number of worker = 4 會有 bug (pytorch問題)
   
